@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const initialView = document.getElementById('initial-view');
     const thankYouView = document.getElementById('thank-you-view');
     const heartsContainer = document.querySelector('.hearts');
+    const bokehContainer = document.querySelector('.bokeh-container');
 
     sendButton.addEventListener('click', () => {
         initialView.style.animation = 'fadeOut 1s forwards';
@@ -27,6 +28,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     setInterval(createHeart, 300); // Create a new heart every 300ms
+
+    function createBokeh() {
+        const light = document.createElement('div');
+        light.classList.add('bokeh-light');
+        const size = Math.random() * 150 + 50;
+        light.style.width = `${size}px`;
+        light.style.height = `${size}px`;
+        light.style.top = `${Math.random() * 100}%`;
+        light.style.left = `${Math.random() * 100}%`;
+        light.style.animationDelay = `${Math.random() * 10}s`;
+        light.style.animationDuration = `${Math.random() * 10 + 10}s`;
+        bokehContainer.appendChild(light);
+    }
+
+    for (let i = 0; i < 20; i++) {
+        createBokeh();
+    }
 });
 
 // Add fadeOut keyframes to the stylesheet

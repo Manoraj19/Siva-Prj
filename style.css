@@ -98,6 +98,36 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Bokeh Lights */
+.bokeh-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2;
+}
+
+.bokeh-light {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    filter: blur(10px);
+    animation: bokeh-float 20s infinite ease-in-out;
+}
+
+@keyframes bokeh-float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-50px) scale(1.2);
+        opacity: 0.8;
+    }
+}
+
 /* Floating Hearts Animation */
 .hearts {
     position: fixed;
